@@ -1,0 +1,22 @@
+Storage & pseudo backend:
+- all the zustand stores must use the same database but different tables that are coresponding to the store
+    - for example a notebookstore will use the notebooks table, the entriesstore will use the entries table, etc.
+- the schema for all the tables and relations is defined inside @database.ts
+- we need stores for: notebooks, categories, entries, sticky notes, tags as well as photos
+- i'm using zustand and i want to use indexeddb as the storage option for persistance
+
+Frontend:
+
+This is a PWA named journal. it's for reflective journaling.
+
+1. When the user first comes to this website he is prompted to register. After he registers the data is stored in the localstorage and each time he gets on to the website he is automaticaly logged in as the useStore fetches the user data from the local storage.
+2. the app allows to create:
+- notebooks
+    - add, delete and update entries
+        - for each entry there can be many child entries
+        - all the entries and child entries are sorted from the most recent ones first
+- notes
+    - add and delete categories for the notes
+    - add, delete and update notes to categories
+
+3. all the data is stored in an indexdb in the browser except for the user data which is in the localstorage as he only registers ones and the he is logged in forever.
