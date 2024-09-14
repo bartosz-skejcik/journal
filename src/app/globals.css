@@ -2,26 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+@layer base {
+    :root {
+        --radius: 0.5rem;
+        --orange: 255, 149, 0;
+        --green: 16, 185, 129;
+        --blue: 0, 160, 255;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+        font-family: "Inter Variable", sans-serif;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+
+    #markdown-editor > h1 {
+        @apply text-3xl font-bold text-foreground;
+    }
+
+    #markdown-editor > h2 {
+        @apply mb-0.5 text-2xl font-bold text-foreground;
+    }
+
+    #markdown-editor > h3 {
+        @apply mb-0.5 text-xl font-bold text-foreground;
+    }
+
+    #markdown-editor > h4 {
+        @apply mb-0.5 text-lg font-bold text-foreground;
+    }
+
+    #markdown-editor > li {
+        list-style-type: disc !important;
+    }
 }
